@@ -1,0 +1,165 @@
+<mxfile host="app.diagrams.net" agent="MyOS" version="24.0.0" type="device">
+  <diagram id="df-run6" name="Dataflow run_process">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1"
+                  tooltips="1" connect="1" arrows="1" fold="1"
+                  page="1" pageScale="1" pageWidth="1169" pageHeight="827">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="Поток данных: пользователь запускает процесс"
+                style="text;html=1;strokeColor=none;fillColor=none;align=center;
+                       fontSize=14;fontStyle=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="300" y="20" width="500" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Участники -->
+        <mxCell id="u" value="user"
+                style="shape=umlActor;verticalLabelPosition=bottom;
+                       verticalAlign=top;html=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="30" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="ul" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="55" y="140" as="sourcePoint"/>
+            <mxPoint x="55" y="620" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="sh" value="shell"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;"
+                vertex="1" parent="1">
+          <mxGeometry x="140" y="80" width="90" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="shl" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="185" y="120" as="sourcePoint"/>
+            <mxPoint x="185" y="620" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="sc" value="syscalls"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;"
+                vertex="1" parent="1">
+          <mxGeometry x="270" y="80" width="90" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="scl" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="315" y="120" as="sourcePoint"/>
+            <mxPoint x="315" y="620" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="k" value="kernel"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;"
+                vertex="1" parent="1">
+          <mxGeometry x="400" y="80" width="90" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="kl" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="445" y="120" as="sourcePoint"/>
+            <mxPoint x="445" y="620" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="sch" value="scheduler"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;"
+                vertex="1" parent="1">
+          <mxGeometry x="530" y="80" width="90" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="schl" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="575" y="120" as="sourcePoint"/>
+            <mxPoint x="575" y="620" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="d" value="db"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;"
+                vertex="1" parent="1">
+          <mxGeometry x="660" y="80" width="90" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="dl" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="705" y="120" as="sourcePoint"/>
+            <mxPoint x="705" y="620" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Сообщения -->
+        <mxCell id="m1" value="run app"
+                style="html=1;endArrow=block;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="55" y="180" as="sourcePoint"/>
+            <mxPoint x="185" y="180" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m2" value="sys_exec(name, user)"
+                style="html=1;endArrow=block;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="185" y="230" as="sourcePoint"/>
+            <mxPoint x="315" y="230" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m3" value="scheduler.create_process(name, owner)"
+                style="html=1;endArrow=block;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="315" y="280" as="sourcePoint"/>
+            <mxPoint x="575" y="280" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m4" value="allocate_memory(size)"
+                style="html=1;endArrow=block;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="575" y="330" as="sourcePoint"/>
+            <mxPoint x="445" y="330" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m5" value="save_memory_state()"
+                style="html=1;endArrow=block;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="445" y="370" as="sourcePoint"/>
+            <mxPoint x="705" y="370" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m6" value="allocate_pid() → pid"
+                style="html=1;endArrow=open;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="445" y="420" as="sourcePoint"/>
+            <mxPoint x="575" y="420" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m7" value="execute_insert(processes, ...)"
+                style="html=1;endArrow=block;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="575" y="470" as="sourcePoint"/>
+            <mxPoint x="705" y="470" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m8" value="pid"
+                style="html=1;endArrow=open;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="575" y="520" as="sourcePoint"/>
+            <mxPoint x="315" y="520" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m9" value="log_syscall(..., 'OK')"
+                style="html=1;endArrow=block;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="315" y="560" as="sourcePoint"/>
+            <mxPoint x="705" y="560" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m10" value="pid"
+                style="html=1;endArrow=open;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="185" y="600" as="sourcePoint"/>
+            <mxPoint x="55" y="600" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

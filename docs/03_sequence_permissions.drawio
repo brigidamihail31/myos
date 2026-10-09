@@ -1,0 +1,185 @@
+ <mxfile host="app.diagrams.net" modified="2025-01-01T00:00:00.000Z"
+        agent="MyOS" version="24.0.0" type="device">
+  <diagram id="seq-del" name="Sequence: delete file">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1"
+                  tooltips="1" connect="1" arrows="1" fold="1"
+                  page="1" pageScale="1" pageWidth="1169" pageHeight="827"
+                  math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Заголовок -->
+        <mxCell id="title" value="Сценарий: guest вводит 'rm /admin_file.txt'"
+                style="text;html=1;strokeColor=none;fillColor=none;align=center;
+                       verticalAlign=middle;fontSize=14;fontStyle=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="300" y="20" width="500" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Участники (lifelines) -->
+        <mxCell id="user" value="user"
+                style="shape=umlActor;verticalLabelPosition=bottom;
+                       verticalAlign=top;html=1;fontSize=12;"
+                vertex="1" parent="1">
+          <mxGeometry x="60" y="80" width="30" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="user-line" style="endArrow=none;dashed=1;html=1;"
+                edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="75" y="140" as="sourcePoint"/>
+            <mxPoint x="75" y="700" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="shell" value="shell"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;
+                       strokeColor=#6c8ebf;"
+                vertex="1" parent="1">
+          <mxGeometry x="170" y="80" width="100" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="shell-line" style="endArrow=none;dashed=1;html=1;"
+                edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220" y="120" as="sourcePoint"/>
+            <mxPoint x="220" y="700" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="syscalls" value="syscalls"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;
+                       strokeColor=#6c8ebf;"
+                vertex="1" parent="1">
+          <mxGeometry x="320" y="80" width="100" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="syscalls-line" style="endArrow=none;dashed=1;html=1;"
+                edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="120" as="sourcePoint"/>
+            <mxPoint x="370" y="700" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="kernel" value="kernel"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;
+                       strokeColor=#d79b00;"
+                vertex="1" parent="1">
+          <mxGeometry x="470" y="80" width="100" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="kernel-line" style="endArrow=none;dashed=1;html=1;"
+                edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="120" as="sourcePoint"/>
+            <mxPoint x="520" y="700" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="auth" value="auth"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;
+                       strokeColor=#6c8ebf;"
+                vertex="1" parent="1">
+          <mxGeometry x="620" y="80" width="100" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="auth-line" style="endArrow=none;dashed=1;html=1;"
+                edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="670" y="120" as="sourcePoint"/>
+            <mxPoint x="670" y="700" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="fs" value="fs"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;
+                       strokeColor=#6c8ebf;"
+                vertex="1" parent="1">
+          <mxGeometry x="770" y="80" width="100" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="fs-line" style="endArrow=none;dashed=1;html=1;"
+                edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="120" as="sourcePoint"/>
+            <mxPoint x="820" y="700" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="db" value="db"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;
+                       strokeColor=#82b366;"
+                vertex="1" parent="1">
+          <mxGeometry x="920" y="80" width="100" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="db-line" style="endArrow=none;dashed=1;html=1;"
+                edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="970" y="120" as="sourcePoint"/>
+            <mxPoint x="970" y="700" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Стрелки вызовов -->
+        <mxCell id="m1" value="rm /admin_file.txt"
+                style="html=1;endArrow=block;endFill=1;"
+                edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="75" y="180" as="sourcePoint"/>
+            <mxPoint x="220" y="180" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="m2" value="sys_delete_file(path, 'guest')"
+                style="html=1;endArrow=block;endFill=1;"
+                edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220" y="230" as="sourcePoint"/>
+            <mxPoint x="370" y="230" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="m3" value="check_permission('guest','delete_file','admin')"
+                style="html=1;endArrow=block;endFill=1;"
+                edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="300" as="sourcePoint"/>
+            <mxPoint x="670" y="300" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="m4" value="False"
+                style="html=1;endArrow=open;dashed=1;"
+                edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="670" y="350" as="sourcePoint"/>
+            <mxPoint x="370" y="350" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="m5" value="log_syscall('sys_delete_file', ..., 'DENIED')"
+                style="html=1;endArrow=block;endFill=1;"
+                edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="410" as="sourcePoint"/>
+            <mxPoint x="970" y="410" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="m6" value="return False"
+                style="html=1;endArrow=open;dashed=1;"
+                edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="470" as="sourcePoint"/>
+            <mxPoint x="220" y="470" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="m7" value="'Отказано'"
+                style="html=1;endArrow=open;dashed=1;"
+                edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220" y="530" as="sourcePoint"/>
+            <mxPoint x="75" y="530" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
